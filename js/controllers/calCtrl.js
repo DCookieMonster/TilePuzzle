@@ -5,8 +5,8 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
     function ($scope, $rootScope, $timeout) {
 
         var emptytilePosRow = 1;
-        var emptytilePosCol = 3;
-        var cellDisplacement = "77.5px";
+        var emptytilePosCol = 2;
+        var cellDisplacement = "69px";
 
 
         $scope.moveTile=function(x)
