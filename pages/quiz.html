@@ -1,0 +1,88 @@
+<div class="row">
+    <h1 class="text-center">Quiz</h1>
+    <!--<p>{{user}}</p>-->
+</div>
+<div class="row">
+    <h5>1. What is the cost of moving?
+    </h5>
+    <div class="radio">
+        <label><input type="radio" ng-model="q1" value="ans1" name="optradio">1</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" ng-model="q1" value="ans2" name="optradio">2</label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q1" value="ans3" name="optradio">3</label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q1" value="ans4" name="optradio">5</label>
+    </div>
+
+
+</div>
+<br><br>
+
+
+<div class="row">
+    <h5>2. What is your main goal in the game?
+    </h5>
+    <div class="radio">
+        <label><input type="radio" ng-model="q2" value="ans1" name="optradio3">Order the numbers however I want
+        </label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" ng-model="q2" value="ans2" name="optradio3">Order the numbers from the higer number to the lower
+        </label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q2" value="ans3" name="optradio3">Mix the number as hard as possible
+        </label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q2" value="ans4" name="optradio3">Order the numbers exactly like the goal looks like (Ascending order) at minimal cost
+        </label>
+    </div>
+
+
+</div>
+<br><br>
+<div class="row">
+    <img src="img/quiz-1.png" width="250px" >
+    <h5>3. In the picture above is this the write order?
+    </h5>
+    <div class="radio">
+        <label><input type="radio" ng-model="q3" value="ans1" name="optradio4">Yes</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" ng-model="q3" value="ans2" name="optradio4">Yes, But the empty slot should be at first tile</label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q3" value="ans3" name="optradio4">No</label>
+    </div>
+
+</div>
+
+<br><br>
+
+<div class="row">
+    <img src="img/quiz-2.png" width="250px" >
+    <h5>4. In the picture above is this the write order?</h5>
+    <div class="radio">
+        <label><input type="radio" ng-model="q4" value="ans1" name="optradio5">Yes</label>
+    </div>
+    <div class="radio">
+        <label><input type="radio" ng-model="q4" value="ans2" name="optradio5">No, because the empty slot is the last one
+        </label>
+    </div>
+    <div class="radio ">
+        <label><input type="radio" ng-model="q4" value="ans3" name="optradio5">No, because the its out of order
+        </label>
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-lg-12 pull-right">
+        <button ng-click="continue()" class="btn btn-default  btn-primary pull-right">Continue</button>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row">
+    <h1 class="text-center">Consent</h1>
+    <div class="col-lg-12">
+        <br><br>
+        <p>
+            Please consider this information carefully before deciding whether to accept this task.
+
+        </p>
+        <p>
+            PURPOSE OF RESEARCH: To examine problem solving performance.
+
+        </p>
+        <p>
+            WHAT YOU WILL DO: You will be asked to solve a puzzle.
+
+        </p>
+        <p>
+            TIME REQUIRED: Participation will take approximately 20 minutes.
+
+        </p>
+        <p>
+            RISKS: There are no anticipated risks associated with participating in this study. The effects of
+            participating should be comparable to those you would experience from viewing a computer monitor for 20
+            minutes and using a mouse.
+
+        </p>
+        <p>
+            COMPENSATION: Upon completion of this task, you will receive a code to enter on the Amazon Mechanical Turk
+            task page, and you will receive the amount that was indicated on the task page.
+
+        </p>
+        <p>
+            CONFIDENTIALITY: Your participation in this study will remain confidential. Your responses will be assigned
+            a code number. You will NOT be asked to provide your name. You will be asked to provide your age and gender.
+            Throughout the experiment, we may collect data such as browser type, operating system version, mouse
+            movements, and error rates.
+
+        </p>
+        <p>
+            PARTICIPATION AND WITHDRAWAL: Your participation in this study is voluntarily, and you may withdraw and
+            return the task to Amazon Mechanical Turk at any time. You will receive a compensation only if you complete
+            the task. You may withdraw at any time by closing the web page of the task.
+
+        </p>
+
+        <p>
+            AGREEMENT: The nature and purpose of this research have been sufficiently explained and I agree to
+            participate in this study. I understand that I am free to withdraw at any time.
+
+        </p>
+        <p>
+            <input type="checkbox" id="consentagree" ng-model="agree">
+            I agree and will participate in this study.
+
+        </p>
+
+
+        <button ng-click="continue()" class="btn  btn-primary pull-right" ng-disabled="!agree">Continue</button>
+    </div>
+</div>

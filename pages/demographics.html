@@ -1,0 +1,35 @@
+<div ng-controller="demoCtrl" class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 ">
+        <div class="">
+            <h2>First a Few Questions</h2>
+            <form>
+                <div class="form-group">
+                    <label>Age:</label>
+                    <input type="number" placeholder="Age" name="age" id="age" ng-model="user.age" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <select type="text" name="gender" id="gender" ng-model="user.gender" class="form-control">
+                        <option value=""></option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Education:</label>
+                    <select type="text" name="edu" id="edu" ng-model="user.education" class="form-control">
+                        <option value="">Select one...</option>
+                        <option value="0">Less than High School</option>
+                        <option value="1">High School/GED</option>
+                        <option value="2">College</option>
+                        <option value="3">Graduate Degree</option>
+                    </select>
+                </div>
+
+                <input ng-click="ok()" type="submit" value="Continue" class="btn btn-primary pull-right">
+            </form>
+        </div>
+
+    </div>
+</div>

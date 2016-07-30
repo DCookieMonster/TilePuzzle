@@ -1,0 +1,21 @@
+{
+  "name": "TilePuzzle",
+  "homepage": "https://github.com/DCookieMonster/PlannerProject",
+  "authors": [
+    "dor <amirdor@gmail.com>"
+  ],
+  "description": "8-puzzle game",
+  "main": "index.html",
+  "keywords": [
+    "8-puzzle"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,219 @@
+<div class="row">
+    <!--<div class="col-lg-2">-->
+
+    <!--</div>-->
+    <div class="col-lg-12">
+        <div class="row">
+            <h1 id="header" class="text-center">The Real Task</h1>
+        </div>
+        <!--<div class="row">-->
+        <!--<h3>State {{index+1}}</h3>-->
+        <!--</div>-->
+        <div class="row">
+            <!--<h5>Estimate the steps</h5>-->
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <!--<p>Please estimate the steps that your robots need to make to complete the task that giving to you.-->
+                    <!--In your answer, please write how many ups, downs, lefts and rights steps your robot will go.-->
+                    <!--Remember that the goal is to color the floor tile like the design at minimal cost.-->
+                    <!--Also bear in mind that going down cost more than the other steps.</p>-->
+
+                <p>
+    Please estimate the minimal number of actions to arrange each board according to the goal pattern (see below).
+
+</p>
+            </div>
+        </div>
+        <!--<div class="row">-->
+        <!--<h3>Time: {{counter}}</h3>-->
+        <!--</div>-->
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="row">
+                    <h3>Timer: {{counter}}</h3>
+
+                </div>
+
+                <div class="row">
+                    <h3><b>Cost: </b><span id="score_span"></span></h3>
+                    <!--<h5>Active Color: <span id="color_span"></span></h5>-->
+                    <h5>Active Robot: <span id="robot_span"></span></h5>
+
+                    <br><br>
+                    <button class="btn btn-default btn-primary" ng-click="undo()">Undo</button>
+                    <button class="btn  btn-default btn-primary" ng-click="reset()">Reset</button>
+                    <br>
+                    <br>
+                    <h5>Action Counters:</h5>
+
+                    <div class="startPic pic">
+                        <!--<h3>State {{index+1}}</h3>-->
+
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Up" Steps: <span>{{start.up}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Down" Steps: <span>{{start.down}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Left" Steps: <span>{{start.left}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Right" Steps: <span>{{start.right}}</span></label>
+
+                        </div>
+
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Up": <span>{{start.colorUp}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Down": <span>{{start.colorDown}}</span></label>
+
+                        </div>
+                    </div>
+
+                    <div class="middlePic pic">
+                        <!--<h3>State {{index+1}}</h3>-->
+
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Up" Steps: <span>{{middle.up}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Down" Steps: <span>{{middle.down}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Left" Steps: <span>{{middle.left}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Right" Steps: <span>{{middle.right}}</span></label>
+
+                        </div>
+
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Up": <span>{{middle.colorUp}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Down": <span>{{middle.colorDown}}</span></label>
+
+                        </div>
+                    </div>
+                    <div class="endPic pic">
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Up" Steps: <span>{{end.up}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Down" Steps: <span>{{end.down}}</span></label>
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Left" Steps: <span>{{end.left}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>"Right" Steps: <span>{{end.right}}</span></label>
+
+                        </div>
+
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Up": <span>{{end.colorUp}}</span></label>
+
+                        </div>
+                        <div class="form-group text-center col-lg-6">
+                            <label>Color "Down": <span>{{end.colorDown}}</span></label>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <canvas id="board" width="550" height="550"></canvas>
+            </div>
+            <div class="col-lg-3">
+                <h3>Game Instruction:</h3>
+                <p>Move Active Robot: arrow keys</p>
+                <p>Paint Up: w </p>
+                <p>Paint Down: s</p>
+                <!--<p>Change Color of Active Robot: c</p>-->
+                <p>Change Robot: x</p>
+                <h3>Your Goal:</h3>
+                <canvas id="goal" width="100" height="100"></canvas>
+
+            </div>
+        </div>
+
+        <div class="pic startPic" id="startPic">
+            <!--<div class="row" align="center">-->
+            <!--<img class="img-responsive" src="img/stages/12.png" alt="">-->
+            <!--</div>-->
+
+
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group col-lg-12">
+                            <label>My estimate for the lowest cost solution is:</label>
+                            <input type="number" min="0" placeholder="cost" name="cost"
+                                   ng-model="startCost" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pic middlePic" id="middlePic">
+
+            <!--<div class="row" align="center">-->
+            <!--<img class="img-responsive " src="img/stages/2.png" alt="">-->
+            <!--</div>-->
+
+
+
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group col-lg-12">
+                            <label>My estimate for the lowest cost solution is:</label>
+                            <input type="number" min="0" placeholder="cost" name="cost"
+                                   ng-model="middleCost" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pic endPic" id="endPic">
+
+            <!--<div class="row" align="center">-->
+            <!--<img class="img-responsive " src="img/stages/4.png" alt="">-->
+            <!--</div>-->
+
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group col-lg-12">
+                            <label>My estimate for the lowest cost solution is:</label>
+                            <input type="number" min="0" placeholder="cost" name="cost"
+                                   ng-model="endCost" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <button ng-click="continue()" class="btn  btn-primary pull-right">Continue</button>
+
+    </div>
+</div>
+
+<script src="js/variables.js"></script>

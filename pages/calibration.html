@@ -1,0 +1,167 @@
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="row">
+            <h1 id="header" class="text-center"> Practice session: Estimating the number of steps
+            </h1>
+        </div>
+        <div class="row">
+            <!--<h5>Estimate the steps</h5>-->
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <!--<p>Please estimate the steps that your robots need to make to complete the task that giving to you.-->
+                    <!--In your answer, please write how many ups, downs, lefts and rights steps your robot will go.-->
+                    <!--Remember that the goal is to color the floor tile like the design at minimal cost.-->
+                    <!--Also bear in mind that going down cost more than the other steps.</p>-->
+<p>
+    Please estimate the minimal cost (
+    <small>number of actions</small>
+    ) to arrange each board according to the goal pattern (see below).
+</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p style="font-weight: bold">This is a practice session.
+                    We will give you feedback how close are you to the real cost.
+                </p>
+
+            </div>
+        </div>
+        <!--<div class="row">-->
+        <!--<h3>Time: {{counter}}</h3>-->
+        <!--</div>-->
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3 text-center">
+
+                    <h3>Timer: {{counter}}</h3>
+
+                </div>
+
+                <div class="col-lg-3 text-center">
+                    <h3><b>Cost: </b>{{score}}</h3>
+                </div>
+                <div class="col-lg-3 text-center">
+                    <button class="btn btn-default btn-danger" style="    margin-top: 7%;" ng-click="undo()">Undo</button>
+                    <button class="btn  btn-default btn-danger" style="    margin-top: 7%;" ng-click="reset()">Reset</button>
+                </div>
+                    <!--<br>-->
+                    <!--<br>-->
+                    <!--<h5>Action Counters:</h5>-->
+                    <!--<div class="form-group text-center col-lg-6">-->
+                        <!--<label>"Up" Steps: <span>{{calibration.up}}</span></label>-->
+                    <!--</div>-->
+                    <!--<div class="form-group text-center col-lg-6">-->
+                        <!--<label>"Down" Steps: <span>{{calibration.down}}</span></label>-->
+                    <!--</div>-->
+                    <!--<div class="form-group text-center col-lg-6">-->
+                        <!--<label>"Left" Steps: <span>{{calibration.left}}</span></label>-->
+
+                    <!--</div>-->
+                    <!--<div class="form-group text-center col-lg-6">-->
+                        <!--<label>"Right" Steps: <span>{{calibration.right}}</span></label>-->
+
+                    <!--</div>-->
+
+
+            </div>
+            </div>
+            <div class="row">
+
+                <div class="container">
+                    <div class="grid-container">
+                        <h2> Initial State: </h2>
+                        <div class="grid start">
+                            <div class="row">
+                                <div class="cell gameCell" data-pos="0,0"><span>14</span></div>
+                                <div class="cell gameCell" data-pos="0,1"><span>6</span></div>
+                                <div class="cell gameCell" data-pos="0,2"><span>4</span></div>
+                                <div class="cell gameCell" data-pos="0,3"><span>2</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell gameCell" data-pos="1,0"><span>10</span></div>
+                                <div class="cell gameCell" data-pos="1,1"><span>11</span></div>
+                                <div class="cell gameCell" data-pos="1,2"><span>1</span></div>
+                                <div class="cell gameCell" data-pos="1,3"><span>8</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell gameCell" data-pos="2,0"><span>15</span></div>
+                                <div class="cell gameCell" data-pos="2,1"><span>5</span></div>
+                                <div class="cell gameCell" id="empty" data-pos="2,2"></div>
+                                <div class="cell gameCell" data-pos="2,3"><span>13</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell gameCell" data-pos="3,0"><span>7</span></div>
+                                <div class="cell gameCell" data-pos="3,1"><span>12</span></div>
+                                <div class="cell gameCell" data-pos="3,2"><span>3</span></div>
+                                <div class="cell gameCell" data-pos="3,3"><span>9</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="grid-container">
+                        <h2> Goal: </h2>
+                        <div class="grid goal">
+                            <div class="row">
+                                <div class="cell"><span>1</span></div>
+                                <div class="cell"><span>2</span></div>
+                                <div class="cell"><span>3</span></div>
+                                <div class="cell"><span>4</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell"><span>5</span></div>
+                                <div class="cell"><span>6</span></div>
+                                <div class="cell"><span>7</span></div>
+                                <div class="cell"><span>8</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell"><span>9</span></div>
+                                <div class="cell"><span>10</span></div>
+                                <div class="cell"><span>11</span></div>
+                                <div class="cell"><span>12</span></div>
+                            </div>
+                            <div class="row">
+                                <div class="cell"><span>13</span></div>
+                                <div class="cell"><span>14</span></div>
+                                <div class="cell"><span>15</span></div>
+                                <div class="cell"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+        </div>
+        <div class="pic" id="calibrationPic">
+            <br><br><br>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <form>
+                    <div class="form-group text-center col-lg-12">
+                        <label>My estimate for the minimum cost solution is:</label>
+                        <input type="number" min="0" placeholder="cost" name="cost" id="cost"
+                               ng-model="cost" class="form-control">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <button ng-click="continue()" class="btn  btn-primary pull-right">Continue</button>
+
+        </div>
+
+
+    </div>
+</div>
+
+<!--<script src="js/variables.js"></script>-->
