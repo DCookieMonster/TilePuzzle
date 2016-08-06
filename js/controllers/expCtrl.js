@@ -31,6 +31,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 $scope.emptytilePosRow -= 1;
                 $(x).attr('data-pos', (posRow + 1) + "," + posCol);
                 $scope.userMoves.push({move: "U", cell: x});
+                $scope.userMovesLog.push("U");
+
                 $scope.score += 1;
 
             }
@@ -48,6 +50,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 $scope.emptytilePosRow += 1;
                 $(x).attr('data-pos', (posRow - 1) + "," + posCol);
                 $scope.userMoves.push({move: "D", cell: x});
+                $scope.userMovesLog.push("D");
+
                 $scope.score += 1;
 
             }
@@ -65,6 +69,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 $scope.emptytilePosCol -= 1;
                 $(x).attr('data-pos', posRow + "," + (posCol + 1));
                 $scope.userMoves.push({move: "L", cell: x});
+                $scope.userMovesLog.push("L");
+
                 $scope.score += 1;
 
             }
@@ -83,6 +89,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 $(x).attr('data-pos', posRow + "," + (posCol - 1));
 
                 $scope.userMoves.push({move: "R", cell: x});
+                $scope.userMovesLog.push("R");
+
                 $scope.score += 1;
 
             }
@@ -92,6 +100,16 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
             if (emptytilePosColold != $scope.emptytilePosCol || emptytilePosRowOld != $scope.emptytilePosRow) {
                 if ($scope.checkIfWin()) {
                     alert("win");
+                    if ($scope.activeState[index] == "startPic") {
+                        $rootScope.user['startWon'] = true;
+                    }
+                    if ($scope.activeState[index] == "middlePic") {
+                        $rootScope.user['middleWon'] = true;
+                    }
+                    if ($scope.activeState[index] == "endPic") {
+                        $rootScope.user['endWon'] = true;
+                    }
+
                 }
             }
 
@@ -103,6 +121,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
             }
             $scope.score -= 1;
             var move = $scope.userMoves.pop();
+            $scope.userMovesLog.pop();
+
             var x = move.cell;
 
             // Gets the position of the current element
@@ -169,7 +189,7 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
             $($scope.empty).attr('data-pos', $scope.emptytilePosRow + "," + $scope.emptytilePosCol);
             if (emptytilePosColold != $scope.emptytilePosCol || emptytilePosRowOld != $scope.emptytilePosRow) {
                 if ($scope.checkIfWin()) {
-                    alert("win");
+                    alert("You won!");
                 }
             }
         };
@@ -256,6 +276,10 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
             $scope.endCost = 0;
             $scope.middleCost = 0;
             $scope.startCost = 0;
+            $rootScope.user['startWon'] = false;
+            $rootScope.user['middleWon'] = false;
+            $rootScope.user['endWon'] = false;
+
             var i = Math.floor(Math.random() * 6);
             console.log("the index is:" + i);
             if (i < 0 || i > 6) {
@@ -270,7 +294,7 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
             $scope.countdown();
         };
 
-
+        $scope.userMovesLog = [];
         $scope.userMoves = [];
         $scope.cost = 0;
         $scope.score = 0;
@@ -337,20 +361,31 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
 
                 if ($scope.activeState[$scope.index] == "middlePic") {
 
-                    $rootScope.user['userMovesMiddle'] = $scope.userMoves;
+                    $rootScope.user['userMovesMiddle'] = $scope.userMovesLog;
                     $rootScope.user['userCalcCostMiddle'] = $scope.score;
+                    $(".cellMiddle").off("click");
+
+                    $scope.userMovesLog = [];
                     $scope.userMoves = [];
                 }
                 else if ($scope.activeState[$scope.index] == "endPic") {
 
-                    $rootScope.user['userMovesEnd'] = $scope.userMoves;
+                    $rootScope.user['userMovesEnd'] = $scope.userMovesLog;
                     $rootScope.user['userCalcCostEnd'] = $scope.score;
                     $scope.userMoves = [];
+                    $scope.userMovesLog = [];
+
+                    $(".cellEnd").off("click");
+
                 } else {
 
-                    $rootScope.user['userMovesStart'] = $scope.userMoves;
+                    $rootScope.user['userMovesStart'] = $scope.userMovesLog;
                     $rootScope.user['userCalcCostStart'] = $scope.score;
                     $scope.userMoves = [];
+                    $scope.userMovesLog = [];
+
+                    $(".cellStart").off("click");
+
                 }
                 $scope.index += 1;
                 $(".pic").hide();

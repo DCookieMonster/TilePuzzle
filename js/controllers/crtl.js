@@ -48,8 +48,8 @@ app.controller("endCtrl", ["$scope", "$rootScope", "$http",
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:5000/save_slide_puzzle',
-                //url: 'http://datasciencelab.ise.bgu.ac.il:5000/save_slide_puzzle',
+                //url: 'http://localhost:5000/save_slide_puzzle',
+                url: 'http://datasciencelab.ise.bgu.ac.il:5000/save_slide_puzzle',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param($rootScope.user)
             }).then(function(response) {

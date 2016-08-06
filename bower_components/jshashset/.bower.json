@@ -1,0 +1,19 @@
+{
+  "name": "jshashset",
+  "version": "3.0.0",
+  "main": "hashset.js",
+  "dependencies": {
+    "jshashtable": "~3.0.0"
+  },
+  "homepage": "https://github.com/enrique2727/jshashset",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.0.0",
+    "commit": "557341591e8cca8bb2fb42eb9f03d40b71845b24"
+  },
+  "_source": "https://github.com/enrique2727/jshashset.git",
+  "_target": "^3.0.0",
+  "_originalSource": "jshashset",
+  "_direct": true
+}

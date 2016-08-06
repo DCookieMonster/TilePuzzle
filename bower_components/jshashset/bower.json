@@ -1,0 +1,8 @@
+{
+  "name": "jshashset",
+  "version": "3.0.0",
+  "main": "hashset.js",
+  "dependencies": {
+    "jshashtable": "~3.0.0"
+  }
+}

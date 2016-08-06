@@ -31,6 +31,8 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
                 emptytilePosRow-=1;
                 $(x).attr('data-pos',(posRow+1) + "," + posCol);
                 $scope.userMoves.push({move:"U",cell:x});
+                $scope.userMovesLog.push("U");
+
                 $scope.score+=1;
 
             }
@@ -49,6 +51,8 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
                 emptytilePosRow+=1;
                 $(x).attr('data-pos',(posRow-1) + "," + posCol);
                 $scope.userMoves.push({move:"D",cell:x});
+                $scope.userMovesLog.push("D");
+
                 $scope.score+=1;
 
             }
@@ -67,6 +71,8 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
                 emptytilePosCol -= 1;
                 $(x).attr('data-pos',posRow + "," + (posCol+1));
                 $scope.userMoves.push({move:"L",cell:x});
+                $scope.userMovesLog.push("L");
+
                 $scope.score+=1;
 
             }
@@ -86,6 +92,7 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
                 $(x).attr('data-pos',posRow + "," + (posCol-1));
 
                 $scope.userMoves.push({move:"R",cell:x});
+                $scope.userMovesLog.push("R");
                 $scope.score+=1;
 
             }
@@ -106,6 +113,7 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
             }
             $scope.score-=1;
             var move=$scope.userMoves.pop();
+            $scope.userMovesLog.pop();
             var x=move.cell;
 
             // Gets the position of the current element
@@ -175,13 +183,13 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
                     alert("win");
                 }
             }
-        }
+        };
 
         $scope.reset=function() {
             while ($scope.userMoves.length>0){
                 $scope.undo();
             }
-        }
+        };
         $scope.checkIfWin=function(){
             var cells=$(".gameCell");
             for (var key in cells){
@@ -223,6 +231,7 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
 
 
         $scope.userMoves = [];
+        $scope.userMovesLog = [];
         $scope.cost = 0;
         $scope.score=0;
 
@@ -262,10 +271,10 @@ app.controller("calCtrl", ["$scope", "$rootScope", '$timeout',
             $rootScope.user['calibrationCost'] = $scope.cost;
             $rootScope.user['calibrationCalcCost'] = $scope.score;
             $rootScope.user['calibrationWin'] = $scope.win;
-            $rootScope.user['calibrationMoves'] = $scope.userMoves;
+            $rootScope.user['calibrationMoves'] = $scope.userMovesLog;
 
             $rootScope.user['calibrationDuration'] = (new Date() - start) / 1000;
-
+            $(".cell").off("click");
             $scope.changeRoute('#/calibrationResult');
 
 
