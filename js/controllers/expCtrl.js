@@ -229,7 +229,7 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 $scope.emptytilePosRow = 2;
                 $scope.emptytilePosCol = 2;
                 $scope.cellDisplacement = "77.5px";
-                $scope.empty = "#emptyEnd";
+                $scope.empty = "#emptyMiddle";
 
                 $(".cellMiddle").click(function () {
                     //Some code
