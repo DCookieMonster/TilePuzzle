@@ -48,9 +48,8 @@ app.controller("endCtrl", ["$scope", "$rootScope", "$http",
 
             $http({
                 method: 'POST',
-                //url: 'http://localhost:5000/json',
-                //url: 'http://q2a.ise.bgu.ac.il:5000/json',
-                url: 'http://datasciencelab.ise.bgu.ac.il:5000/json',
+                url: 'http://localhost:5000/save_slide_puzzle',
+                //url: 'http://datasciencelab.ise.bgu.ac.il:5000/save_slide_puzzle',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param($rootScope.user)
             }).then(function(response) {
@@ -91,7 +90,7 @@ app.controller("insCtrl", ["$scope", "$rootScope",
         //$scope.userInfo=$rootScope.userInfo;
         $scope.continue = function () {
             $rootScope.user["DurationInstruction"] =( new Date - start)/1000;
-            $rootScope.user["NumberOfTimeInQuiz"] = $rootScope.numberOftimeInQuiz
+            $rootScope.user["NumberOfTimeInQuiz"] = $rootScope.numberOftimeInQuiz;
             $scope.changeRoute('#/quiz');
         }
     }]);
