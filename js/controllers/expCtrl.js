@@ -226,7 +226,7 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
 
         $scope.init_state = function () {
             if ($scope.activeState[$scope.index] == "middlePic") {
-                $scope.emptytilePosRow = 2;
+                $scope.emptytilePosRow = 1;
                 $scope.emptytilePosCol = 2;
                 $scope.cellDisplacement = "77.5px";
                 $scope.empty = "#emptyMiddle";
@@ -237,7 +237,7 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                 });
             }
             else if ($scope.activeState[$scope.index] == "endPic") {
-                $scope.emptytilePosRow = 2;
+                $scope.emptytilePosRow = 1;
                 $scope.emptytilePosCol = 2;
                 $scope.cellDisplacement = "69px";
                 $scope.empty = "#emptyEnd";
@@ -247,8 +247,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
                     $scope.moveTile(this);
                 });
             } else {
-                $scope.emptytilePosRow = 2;
-                $scope.emptytilePosCol = 2;
+                $scope.emptytilePosRow = 3;
+                $scope.emptytilePosCol = 1;
                 $scope.cellDisplacement = "77.5px";
                 $scope.empty = "#emptyStart";
 
