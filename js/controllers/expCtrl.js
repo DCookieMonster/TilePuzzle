@@ -226,8 +226,8 @@ app.controller("expCtrl", ["$scope", "$rootScope", '$timeout',
 
         $scope.init_state = function () {
             if ($scope.activeState[$scope.index] == "middlePic") {
-                $scope.emptytilePosRow = 1;
-                $scope.emptytilePosCol = 2;
+                $scope.emptytilePosRow = 2;
+                $scope.emptytilePosCol = 0;
                 $scope.cellDisplacement = "77.5px";
                 $scope.empty = "#emptyMiddle";
 
